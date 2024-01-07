@@ -5,6 +5,9 @@ const cors = require('cors')
 // Database Connection
 const {connection} = require('./Configuration/db.js');
 
+// Routes
+const {AuthRoutes} = require('./Routes/AuthRoutes.js')
+
 const app = express();
 
 // Middlewares
@@ -15,6 +18,7 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.status(200).send('Welcome to FormEase backend server.');
 })
+app.use('/auth',AuthRoutes);
 
 
 // Server connection to database
