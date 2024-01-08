@@ -17,6 +17,10 @@ const applicationschema = mongoose.Schema({
     Photo:{
         type:String,
         required:true
+    },
+    UserID:{
+        type:String,
+        required:true
     }
 })
 
