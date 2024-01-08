@@ -14,7 +14,7 @@ The FormEase-Backend repository is the robust Express.js backend application tha
 The /auth/v1/signup endpoint is designed to facilitate the user registration process. It allows clients to sign up by providing essential user information such as name, email, and password. Upon successful registration, the user data is stored securely in the database, and a new user account is created.<br>
 
 **HTTP Method : POST**<br>
-**Request Parameter**<br>
+**Request Body**<br>
 1. Name : String
 2. Email : String
 3. Password : String
@@ -29,8 +29,24 @@ The /auth/v1/signup endpoint is designed to facilitate the user registration pro
 The /auth/v1/login endpoint facilitates user authentication by allowing clients to log in using their email and password. Upon successful verification of the provided credentials, the endpoint generates a JSON Web Token (JWT) and returns it to the client. This token can be used for subsequent authorized API requests.<br>
 
 **HTTP Method : POST**<br>
-**Request Parameter**<br>
+**Request Body**<br>
 1. Email : String
 2. Password : String
+<br><br>
 
+### 3. Application - Create : /application/v1/create
+The /application/v1/create endpoint is a POST request that facilitates the creation of a new application within the database, specifically in the "application" collection. This endpoint incorporates an Authentication middleware, utilizing JWT in the request header to verify the user's logged-in status. Only authenticated users are granted access to this endpoint. Upon successful authentication, the endpoint processes the incoming data to create a new application, storing it in the designated collection in the database. This ensures that only authorized users can initiate the creation of new applications, adding an essential layer of security to the application creation process.
+
+**HTTP Method : POST**<br>
+**Request Body**<br>
+1. Name
+2. DOB 
+3. Address 
+4. Photo
+<br><br>
+
+### 4. Application - Get All Applications : /application/v1/
+The /application/v1/ endpoint is a secure GET request that retrieves all applications stored in the database within the "application" collection. Access to this endpoint is restricted to authenticated users, enforced by an authentication middleware that verifies the presence of a valid JWT token in the request header.
+
+**HTTP Method : GET**<br><br>
 # 🚀🚀 Launching Soon... 🚀🚀
