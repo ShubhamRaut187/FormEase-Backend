@@ -7,6 +7,7 @@ const {connection} = require('./Configuration/db.js');
 
 // Routes
 const {AuthRoutes} = require('./Routes/AuthRoutes.js')
+const {UserRoutes} = require('./Routes/UserRoutes.js')
 const {AplicationRoutes} = require('./Routes/ApplicationRoutes.js')
 
 const app = express();
@@ -20,6 +21,7 @@ app.get('/',(req,res)=>{
     res.status(200).send('Welcome to FormEase backend server.');
 })
 app.use('/auth',AuthRoutes);
+app.use('/user',UserRoutes)
 app.use('/application',AplicationRoutes);
 
 // Server connection to database
