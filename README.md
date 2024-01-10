@@ -1,13 +1,19 @@
 # FormEase-Backend 🗃️🌐
 The FormEase-Backend repository is the robust Express.js backend application that powers the FormEase application. Developed using Node.js and MongoDB, this backend leverages the power of MERN stack technologies. It incorporates essential security features such as JWT tokens and bcrypt hashing for password storage, ensuring the integrity and confidentiality of user data. The repository provides well-defined endpoints for user authentication, enabling smooth and secure user sign-up and login processes. Additionally, FormEase-Backend facilitates seamless application form submission by users, with endpoints dedicated to handling CRUD operations for individual application forms. Mongoose, a MongoDB object modeling tool, is employed to define the data schema and create the data model, ensuring efficient and organized data management within the MongoDB database. FormEase-Backend serves as the backbone of the FormEase application, ensuring a reliable and secure backend infrastructure for users to navigate, submit application forms, and perform necessary CRUD operations.
 
-## Tech-Stack
+## Tech-Stack 📚
 1. Node JS
 2. Express JS
 3. MongoDB Atlas
 4. Mongoose
 5. Json Web Token (JWT)
 6. Bcrypt
+
+## Frontend Repository : FormEase-Frontend
+https://github.com/ShubhamRaut187/FormEase-Frontend
+
+## Base Server API 🌐
+https://formeaseserver.onrender.com
 
 ## API - End-Points 🌐
 ### 1. Authentication - Signup : /auth/v1/signup 🕺
@@ -49,4 +55,15 @@ The /application/v1/create endpoint is a POST request that facilitates the creat
 The /application/v1/ endpoint is a secure GET request that retrieves all applications stored in the database within the "application" collection. Access to this endpoint is restricted to authenticated users, enforced by an authentication middleware that verifies the presence of a valid JWT token in the request header.
 
 **HTTP Method : GET**<br><br>
-# 🚀🚀 Launching Soon... 🚀🚀
+
+### 5. Application - Get All Applications : /application/v1/all/:uid
+The /application/v1/all/:uid endpoint is a secure GET request that retrieves all applications of a apecific user stored in the database within the "application" collection. Access to this endpoint is restricted to authenticated users, enforced by an authentication middleware that verifies the presence of a valid JWT token in the request header.
+
+**HTTP Method : GET**<br><br>
+
+### 5. Application - Get Single Application : /application/v1/single/id
+The /application/v1/single/id endpoint is a secure GET request that retrieves application of a apecific id stored in the database within the "application" collection. Access to this endpoint is restricted to authenticated users, enforced by an authentication middleware that verifies the presence of a valid JWT token in the request header.
+
+**HTTP Method : GET**<br><br>
+
+# Thank You... 😇
