@@ -39,7 +39,7 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
     try {
         const User = await Usermodel.findOne({Email:Email});
         if(!User){
-            res.status(404).send({'Message':'Please signup...!'});
+            res.status(404).send({'Message':'Please signup...!, maybe a wrong email'});
         }
         const Hash = User.Password;
         const Correct_Password = bcrypt.compareSync(Password,Hash);
@@ -47,7 +47,8 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
             const Token = jwt.sign({UserID:User._id},'AuthToken');
             const UserInfo = {
                 Name:User.Name,
-                Email:User.Email
+                Email:User.Email,
+                UserID:User._id
             }
             res.status(200).send({'Message':'Login Successfull.','User':UserInfo,'Token':Token});
         }

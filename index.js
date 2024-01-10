@@ -25,10 +25,10 @@ app.use('/user',UserRoutes)
 app.use('/application',AplicationRoutes);
 
 // Server connection to database
-app.listen(8000,async()=>{
+app.listen(process.env.PORT,async()=>{
     try {
         await connection;
-        console.log('Connection established on port 8000 to FormEase Database.');
+        console.log(`Connection established on port ${process.env.PORT} to FormEase Database.`);
     } catch (error) {
         console.log('Error connecting database',error);
     }

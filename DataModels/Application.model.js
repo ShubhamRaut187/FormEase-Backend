@@ -21,6 +21,10 @@ const applicationschema = mongoose.Schema({
     UserID:{
         type:String,
         required:true
+    },
+    Age:{
+        type:Number,
+        required:true
     }
 })
 
