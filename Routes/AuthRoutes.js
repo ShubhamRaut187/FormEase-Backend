@@ -36,10 +36,12 @@ AuthRoutes.post('/v1/signup',AuthDataCheck,EmailCheck,PasswordCheck,async(req,re
 // Login Route
 AuthRoutes.post('/v1/login',async(req,res)=>{
     const {Email,Password} = req.body;
+
     try {
         const User = await Usermodel.findOne({Email:Email});
         if(!User){
             res.status(404).send({'Message':'Please signup...!, maybe a wrong email'});
+            return
         }
         const Hash = User.Password;
         const Correct_Password = bcrypt.compareSync(Password,Hash);
@@ -50,14 +52,17 @@ AuthRoutes.post('/v1/login',async(req,res)=>{
                 Email:User.Email,
                 UserID:User._id
             }
+            // res.setHeader('Content-Type', 'application/json');
             res.status(200).send({'Message':'Login Successfull.','User':UserInfo,'Token':Token});
         }
         else{
             res.status(401).send({'Message':'Wrong Password'})
         }
     } catch (error) {
-       res.status(500).send({'Message':'Internal Server Error','Error':error});
+        res.status(500).send({'Message':'Internal Server Error','Error':error});
     }
+    
+      
 })
 
 module.exports = {
