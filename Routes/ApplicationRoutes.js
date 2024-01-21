@@ -13,7 +13,7 @@ const AplicationRoutes = Router();
 
 // Create apllication route
 AplicationRoutes.post('/v1/create',Authentication,async(req,res)=>{
-    const {Name,DOB,Address,Photo,UserID,Age} = req.body;
+    const {Name,DOB,Address,Photo,UserID,Age,NumberOne,NumberTwo,Sum,Average,Series} = req.body;
     try {
         const New_Application = new Applicationmodel({
             Name,
@@ -21,7 +21,12 @@ AplicationRoutes.post('/v1/create',Authentication,async(req,res)=>{
             Address,
             Photo,
             UserID,
-            Age
+            Age,
+            NumberOne,
+            NumberTwo,
+            Sum,
+            Average,
+            Series
         })
         await New_Application.save();
         res.status(201).send({'Message':'Application submitted successfully.'});

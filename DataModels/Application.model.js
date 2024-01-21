@@ -25,6 +25,26 @@ const applicationschema = mongoose.Schema({
     Age:{
         type:Number,
         required:true
+    },
+    NumberOne:{
+        type:Number,
+        required:true,
+    },
+    NumberTwo:{
+        type:Number,
+        required:true
+    },
+    Sum:{
+        type:Number,
+        required:true
+    },
+    Average:{
+        type:Number,
+        required:true
+    },
+    Series:{
+        type:[Number],
+        required:true
     }
 })
 
